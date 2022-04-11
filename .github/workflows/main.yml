@@ -22,7 +22,9 @@ jobs:
       run: |
         mvn clean
         mvn -B package
-
+    
+    - run: mvn --help
+    - run : ls ./target/
     
     - name: Create GitHub release
       id: create-new-release
