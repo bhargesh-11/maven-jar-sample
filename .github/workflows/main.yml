@@ -22,9 +22,7 @@ jobs:
       run: |
         mvn clean
         mvn -B package
-    
-    - run: mvn --help
-    - run : ls -lrt ./target/*.jar
+
     
     - name: Create GitHub release
       id: create-new-release
@@ -45,6 +43,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-        asset_path: ./target/maven-jar-*.jar
+        asset_path: ./target/maven-jar-sample-1.0-SNAPSHOT.jar
         asset_name: bdds-server-v${{ github.run_number }}.jar
         asset_content_type: application/java-archive
